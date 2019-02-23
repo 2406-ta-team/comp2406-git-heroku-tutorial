@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+        <title>COMP 2406 - Winter 2019 Tutorial Git & Heroku</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+        <link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <style>
+.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
+</style>
+        <style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        
+        <script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+    </head>
+    <body>
+        <h1 id="comp-2406---winter-2019-tutorial-git--heroku">COMP 2406 - Winter 2019 Tutorial Git &amp; Heroku</h1>
+<h2 id="introduction-to-git--heroku">Introduction to Git &amp; Heroku</h2>
+<p>© Omar Garcia Flores &amp; L.D. Nel 2019</p>
+<p>Revisions:</p>
+<hr>
+<h2 id="description">Description:</h2>
+<p>The purpose of this tutorial is for you to be introduced to one of the most important collaboration tools in the industry, <strong>Git</strong>. The use of this tool in various workplaces is a common practice and will be useful for various other courses such as COMP3004.</p>
+<p>As background for this tutorial it is recommended that you look over the Git documentation in the following website <a href="https://guides.github.com/introduction/git-handbook/">https://guides.github.com/introduction/git-handbook/</a></p>
+<p>To learn more about version control software and Git, refer to the following website: <a href="https://git-scm.com/about">https://git-scm.com/about</a></p>
+<p>Tutorial grading: 0,1,or 2 marks. 0 marks for no show or no progress. 1 mark for partial completion, and 2 marks for completing all or most of the tutorial. Important: tutorials are meant to be started as homework. You will not generally be able to finish a tutorial if you only start it at the tutorial session.</p>
+<hr>
+<h2 id="overview">- Overview</h2>
+<p>In this tutorial you will create a <strong>Github Repository</strong> and deploy the Assignment 1 answer code on a <strong>Heroku</strong> remote image.</p>
+<hr>
+<h2 id="instructions">Instructions:</h2>
+<hr>
+<h1 id="part-1-installing-git">Part 1 Installing Git</h1>
+<p><strong>If you are working on a lab computer, make sure to check that Git is already installed and skip to part 2.</strong></p>
+<p>Head to <a href="https://git-scm.com/downloads">https://git-scm.com/downloads</a>, download and install git. Follow the installation insctructions according to your operating system.</p>
+<p>After installing, go on your terminal and enter the following command:</p>
+<ul>
+<li><code>$ git --version</code></li>
+</ul>
+<p>A message similar to the following should be displayed:</p>
+<p><img src="./images/git-version.jpg" alt="alt text"></p>
+<h2 id="before-moving-forward">Before moving forward</h2>
+<p>After installing Git, you should have the following program in your system:</p>
+<ul>
+<li><strong>Git Bash</strong></li>
+</ul>
+<p>Git bash is a Unix shell command line for Windows, a very powerful tool.</p>
+<h2 id="make-sure-to-use-this-terminal-moving-forward-in-the-tutorial">Make sure to use this terminal moving forward in the tutorial.</h2>
+<h1 id="part-2-creating-a-github-account-creating-an-ssh-key-and-adding-it-to-your-account">Part 2 Creating a GitHub account, creating an SSH key and adding it to your account</h1>
+<h2 id="new-github-account">- New GitHub account</h2>
+<p>Head to <a href="http://github.com">http://github.com</a> and create a new account. If you already have one, skip to the next step.</p>
+<p><img src="./images/github-signup.jpg" alt="alt text"></p>
+<h2 id="generating-a-ssh-key">- Generating a SSH key</h2>
+<p>To learn more about SSH keys, head to <a href="https://help.github.com/en/articles/about-ssh">https://help.github.com/en/articles/about-ssh</a>.</p>
+<p>Open your terminal and enter the following command:</p>
+<ul>
+<li><code>$ ssh-keygen</code></li>
+</ul>
+<p>Press enter on every question prompted.</p>
+<p>This will generate a very long string, this is an SSH key.</p>
+<p>To display the generated key, enter the following command:</p>
+<ul>
+<li><code>$ cat ~/.ssh/id_rsa.pub</code></li>
+</ul>
+<h2 id="copy-the-generated-ssh-key"><strong>Copy the generated SSH key.</strong></h2>
+<h2 id="important">Important</h2>
+<p><strong>Do not share your ssh key with anyone.</strong></p>
+<h2 id="adding-the-key-to-your-github-account">- Adding the key to your GitHub account</h2>
+<p>Head back to GitHub and click on the plus (<strong>+</strong>) sign on the top right corner and then on <strong>Settings</strong>.</p>
+<p><img src="./images/settings.jpg" alt="alt text"></p>
+<p>Once on the <strong>Settings</strong> page, click on <strong>SSH and GPG keys</strong>, the folllowing page should be displayed:</p>
+<p><img src="./images/ssh.jpg" alt="alt text"></p>
+<p>Click on <strong>New SSH key</strong></p>
+<p><img src="./images/addssh.jpg" alt="alt text"></p>
+<p>You should have the following options, fill them with your ssh key and give it a name of your choice.</p>
+<p><img src="./images/finaladdssh.jpg" alt="alt text"></p>
+<p>You have succesfully added an SSH key to your account.</p>
+<h1 id="part-3-making-a-repository-and-cloning-it-to-your-computer">Part 3 Making a repository and cloning it to your computer</h1>
+<h2 id="creating-a-new-repository">- Creating a new repository</h2>
+<p>Click on the plus (<strong>+</strong>) sign on the top right corner and then on <strong>New repository</strong></p>
+<p><img src="./images/newrepository.jpg" alt="alt text"></p>
+<p>You should then arrive at the following page:</p>
+<p><img src="./images/create-rep.jpg" alt="alt text"></p>
+<h2 id="important-1">- Important</h2>
+<ul>
+<li><strong>Make sure to select Private</strong></li>
+<li>It is not necessary to initialize this repository with a README for the purpose of this tutorial.</li>
+</ul>
+<p>Then click on Create repository (Green button)</p>
+<p>After creating the repository you should see the following screen:</p>
+<p><img src="./images/new-rep.jpg" alt="alt text"></p>
+<h2 id="cloning-the-repository">- Cloning the repository</h2>
+<p>At the top of the page, click on SSH, and then copy the given link.</p>
+<p><img src="./images/cloneSSH.jpg" alt="alt text"></p>
+<p>Using your terminal, head over to the directory in which you would like to clone this repository to (i.e. Documents/ GitHub Projects, etc.)</p>
+<p>Enter the following command:</p>
+<ul>
+<li><code>$ git clone &lt;paste ssh link here&gt;</code></li>
+</ul>
+<p>Git will now clone the repository to the given directory, it should look like this:</p>
+<p><img src="./images/clone.png" alt="alt text"></p>
+<h1 id="part-4-modifying-the-answer-code">Part 4 Modifying the answer code</h1>
+<p>Make the following modifications to the answer code of assignment one in the demo_code directory.</p>
+<p>Open the server file with a text editor and make the following changes:</p>
+<ul>
+<li>In line 149 make the following edit:
+<ul>
+<li>replace <code>.listen(3000)</code> with <code>.listen(process.env.PORT || 80)</code></li>
+</ul>
+</li>
+</ul>
+<p><strong>This change must be made since we do not know the port that will be assigned to our server on heroku</strong></p>
+<h2 id="creating-a-packagejson-file">- Creating a package.json file</h2>
+<p>Open a terminal in the current demo_code directory and enter the following command:</p>
+<ul>
+<li><code>$ npm init</code></li>
+</ul>
+<p>You will be prompted with a series of questions, press the Enter key <strong>until you reach the option</strong>:</p>
+<ul>
+<li><strong>Test Command:</strong></li>
+</ul>
+<p>When prompted to enter a <strong>Test Command</strong> , enter the following:</p>
+<ul>
+<li><code>node server.js</code></li>
+</ul>
+<p>Continue to press the Enter key for the rest of the questions.</p>
+<p>The final result should look like the following:</p>
+<p><img src="./images/init.jpg" alt="alt text"></p>
+<p><img src="./images/finalinit.jpg" alt="alt text"></p>
+<p><strong>By the end of this step you should have generated a package.json file</strong></p>
+<h2 id="moving-the-code">- Moving the code</h2>
+<p><strong>Copy</strong> every file and directory inside of the given demo_code directory.</p>
+<p>Head to the directory you cloned from GitHub in <strong>step 3</strong> and paste all the copied items.</p>
+<p>You should now have the following items on your cloned directory:</p>
+<ul class="contains-task-list">
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> _MACOSX</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> html</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> songs</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> .DS_Store</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> package.json</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> ReadMe.txt</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> server.js</li>
+<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> <a href="http://README.md">README.md</a> (optional)</li>
+</ul>
+<h1 id="part-5-add-commit-and-push-your-changes">Part 5 add, commit, and push your changes</h1>
+<p>Before moving on, we must tell git who we are by entering the following command:</p>
+<ul>
+<li><code>$ git --global set user.email &quot;youremail@gmail.com&quot;</code></li>
+</ul>
+<p>Git keeps track of the changes we've made to the current working directory, this can be verified by entering the following command:</p>
+<ul>
+<li><code>$ git status</code></li>
+</ul>
+<p>As you can see, Git will tell us that there are serveral files that are untracked and modified.</p>
+<h2 id="adding-the-changes-tracking">- Adding the changes (tracking)</h2>
+<p>We must first tell Git who we are by entering the following command:</p>
+<ul>
+<li><code>$ git config --global user.email &quot;you@example.com&quot;</code></li>
+</ul>
+<p>To add the modified files to the current work stream, enter the following command:</p>
+<ul>
+<li><code>$ git add -A</code></li>
+</ul>
+<p>This will have added the changes to the stream, now we have to stage these changes.</p>
+<h2 id="commiting-changes-staging">- Commiting changes (staging)</h2>
+<p>To stage our changes (also know as &quot;commit&quot;) we will enter the following command:</p>
+<ul>
+<li><code>$ git commit -m &quot;Commit message&quot;</code></li>
+</ul>
+<p><img src="./images/commit.png" alt="alt text"></p>
+<p>This will have commited and staged the changes made to the stream.</p>
+<h2 id="pushing-changes">- Pushing changes</h2>
+<ul>
+<li><code>$ git push</code></li>
+</ul>
+<p><img src="./images/push.png" alt="alt text"></p>
+<p>This will push the changes we've made to the cloud repository.</p>
+<h1 id="step-6-installing-heroku-and-creating-an-account">Step 6 Installing Heroku and creating an account</h1>
+<h2 id="creating-an-account">- Creating an account</h2>
+<p>Head to <a href="https://www.heroku.com/">https://www.heroku.com/</a> and click on the <strong>Sign up</strong> button.</p>
+<p><img src="./images/heroku-log.jpg" alt="alt text"></p>
+<p>After completing the sign up process, you should arrive at the main dashboard, once you arrive at this screen, move on to the next step.</p>
+<p><img src="./images/heroku-dashboard.jpg" alt="alt text"></p>
+<h2 id="downloading-and-installing-heroku">- Downloading and installing Heroku</h2>
+<p>Head to <a href="https://devcenter.heroku.com/articles/heroku-cli#download-and-install">https://devcenter.heroku.com/articles/heroku-cli#download-and-install</a> and follow the install instructions according to your operating system.</p>
+<p>After following these steps, enter the following command to verify the installation was succesful:</p>
+<ul>
+<li><code>$ heroku --version</code></li>
+</ul>
+<p><img src="./images/heroku-version.jpg" alt="alt text"></p>
+<h1 id="step-7-creating-a-heroku-remote-image-and-pushing-the-repository-onto-it">Step 7 Creating a Heroku remote image and pushing the repository onto it</h1>
+<h2 id="creating-the-remote-image">- Creating the remote image</h2>
+<p>In the same directory where step 5 took place, enter the following command:</p>
+<ul>
+<li><code>$ heroku create</code></li>
+</ul>
+<p><img src="./images/create.png" alt="alt text"></p>
+<p>This will redirect you to Heroku's website to log in. Once loged in, it will generate a remote image and provide you with a link to access this server.</p>
+<hr>
+<p><strong>Note</strong> that heroku generates a random name for our project by default. However, if a string with the desired url name is provided, heroku will attempt to give us such url. For example:</p>
+<ul>
+<li><code>$ heroku create &quot;tutorial&quot;</code></li>
+</ul>
+<p>This command will attempt to create a heroku image with such name, however if it is already taken, it will fail.</p>
+<hr>
+<h2 id="pushing-our-repository-to-the-heroku-image">- Pushing our repository to the heroku image</h2>
+<p>Enter the following command after having created the remote image:</p>
+<ul>
+<li><code>$ git push heroku master</code></li>
+</ul>
+<p><img src="./images/push-heroku.png" alt="alt text"></p>
+<p>This will deploy our app to the heroku server. This will seem like a lot of information but it will tell you whether or not the deployment was succesful.</p>
+<p>After having deployed the app, access the link and <strong>make sure to add /assignment1.html</strong>.</p>
+<p>The final result should be a working app on a heroku server:</p>
+<p><img src="./images/final.jpg" alt="alt text"></p>
+<hr>
+<h2 id="important-2"><strong>Important</strong></h2>
+<p>If you used the lab computer to complete the tutorial, <strong>REMOVE</strong> the ssh key you added from your GitHub account.</p>
+<hr>
+<h2 id="call-a-ta-to-show-your-progess">Call a TA to show your progess.</h2>
+<hr>
+<h2 id="the-tas-will-be-hosting-workshops-to-help-you-develop-your-git-skills-as-well-as-other-collaboration-tools">The TAs will be hosting workshops to help you develop your Git skills as well as other collaboration tools.</h2>
+<hr>
+<h1 id="suggested-excercises">Suggested excercises</h1>
+<p>Attempt to create a collaborative repository with another student. Create a branch and create a pull request with your changes.</p>
+<p>Branching and merging:
+<a href="https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging">https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging</a></p>
+<p>Creating a pull request:
+<a href="https://help.github.com/en/articles/creating-a-pull-request">https://help.github.com/en/articles/creating-a-pull-request</a></p>
+
+    </body>
+    </html>
